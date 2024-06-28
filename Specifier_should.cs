@@ -74,7 +74,15 @@ public class Specifier_should
 		CollectionAssert.AreEquivalent(new[] {"login", "password", "allowNoname"}, description);
 	}
 
-	[Test]
+    [Test]
+    public void GetApiMethodParamNamesRandomMethodName()
+    {
+        var description = vkApiSpecifier.GetApiMethodParamNames(Guid.NewGuid().ToString());
+        Assert.IsNull(description);
+    }
+
+
+    [Test]
 	public void GetApiMethodParamNamesWhenRandomMethodName()
 	{
 		var description = vkApiSpecifier.GetApiMethodDescription(Guid.NewGuid().ToString());
